@@ -1,11 +1,12 @@
+@if (loading) {<app-loader></app-loader>} @else{
 <div class="text-center border-b-2 border-primaryBlue mt-4 pb-10">
   <h1 class="font-poppins font-800 text-5xl lg:px-72 text-primaryBlue mb-2">Descripcion</h1>
 </div>
 
 <div class="flex flex-col lg:flex-row justify-center sm:items-center xl:justify-evenly mt-10">
-  <img class="p-8" src="{{ pagina.url_foto }}" alt="foto proyecto" />
+  <img data-aos="fade-right" data-aos-duration="1000" class="p-8" src="{{ pagina.url_foto }}" alt="foto proyecto" />
 
-  <div class="p-8">
+  <div data-aos="fade-left" data-aos-duration="1000" class="p-8">
     <h2 class="font-poppins font-800 text-5xl dark:text-white mb-10">{{ pagina.titulo_pagina }}</h2>
     <p class="font-poppins font-500 text-lg xl:text-xl dark:text-white mb-5">{{ pagina.descripcion_pagina }}</p>
     <p class="font-poppins font-800 text-lg xl:text-xl dark:text-white">Tecnologias</p>
@@ -32,3 +33,4 @@
     </div>
   </div>
 </div>
+}
