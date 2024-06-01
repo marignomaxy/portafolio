@@ -1,0 +1,32 @@
+<div
+  data-aos="zoom-in"
+  data-aos-duration="1000"
+  class="bg-white rounded-22 group overflow-hidden mb-3 xl:mb-0 maxWCard h-full border-2 border-darkGray"
+>
+  <img class="rounded-t-22" src="{{ item.url_foto }}" alt="imagen pagina" />
+  <div
+    class="relative flex flex-col justify-center items-center rounded-b-22 px-5 transform group-hover:-translate-y-10 transition-transform duration-500 bg-white text-center"
+  >
+    <h2 class="font-poppins font-700 text-3xl text-darkGray">
+      {{ item.titulo_pagina }}
+    </h2>
+
+    <div class="flex flex-wrap mt-2 mb-2">
+      @for (tecnologia of item.tecnologias; track $index) {
+      <img class="max-w-6 mr-3 mb-2" src="{{ tecnologia.url_foto_tecnologia }}" alt="tecnologias" />
+      }
+    </div>
+    <div
+      class="relative mt-2 left-0 right-0 mx-auto w-4/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+    >
+      <div class="flex justify-center">
+        <a
+          [routerLink]="['/descripcion', item.id]"
+          class="bg-primaryBlue colorSecond px-6 py-1 rounded-22 font-poppins font-600 text-lg my-2"
+        >
+          Ver descripcion
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

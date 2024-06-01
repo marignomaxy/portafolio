@@ -1,0 +1,122 @@
+.fotoAvatar {
+  max-width: 300px;
+}
+
+button {
+  transition: 0.2s;
+}
+
+.btn-neon {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px;
+  color: #fff;
+  letter-spacing: 4px;
+  text-decoration: none;
+  font-size: 24px;
+  overflow: hidden;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes moveSpan1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes moveSpan3 {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes moveSpan4 {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 100%;
+  }
+}
+
+.btn-neon span {
+  position: absolute;
+  display: block;
+}
+
+#span1 {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #02c645);
+}
+
+.btn-neon:hover #span1 {
+  animation: moveSpan1 1s infinite;
+}
+
+#span3 {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #36d0ff);
+}
+
+.btn-neon:hover #span3 {
+  animation: moveSpan3 1s 0.5s infinite;
+}
+
+@keyframes moveSpan2 {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes moveSpan4 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+#span2 {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #36d0ff);
+  border-radius: 22px;
+}
+
+.btn-neon:hover #span2 {
+  animation: moveSpan2 1s 0.25s infinite;
+}
+
+#span4 {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #36d0ff);
+  border-radius: 22px;
+}
+
+.btn-neon:hover #span4 {
+  animation: moveSpan4 1s 1s infinite;
+}

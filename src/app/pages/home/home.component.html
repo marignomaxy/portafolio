@@ -1,0 +1,353 @@
+@if (loading) {<app-loader></app-loader>} @else {
+<div class="container p-5 mx-auto">
+  <!-- Primer banner avatar -->
+  <div class="xl:flex items-center">
+    <div class="p-5">
+      <h1 class="text-5xl font-poppins font-800 text-primaryBlue mb-1">Hola,soy Maximiliano Marigno</h1>
+      <p class="font-poppins font-500 text-black dark:text-white lg:pr-28 mb-3 mt-2 lg:mb-6 text-center lg:text-left">
+        ¡Bienvenido/a a mi portafolio web! Soy un apasionado programador Full Stack con formación académica en diversas
+        tecnologías. Estoy preparado para enfrentar desafíos emocionantes y contribuir con soluciones innovadoras. Con
+        un enfoque dedicado en el aprendizaje constante, estoy listo para llevar tus proyectos al siguiente nivel.
+      </p>
+      <div class="flex flex-col items-center lg:flex-row">
+        <button
+          class="w-full border-4 border-primaryBlue border-solid rounded-44 px-14 py-3 mb-3 sm:mr-5 hover:scale-105"
+        >
+          <h2 class="font-poppins font-800 text-primaryBlue text-2xl">CONTACTAME</h2>
+        </button>
+        <button class="w-full bg-secondBlue rounded-44 px-14 py-3 mb-3 sm:mr-5 btn-neon">
+          <span id="span1"></span>
+
+          <span id="span3"></span>
+
+          <div class="flex items-center justify-center text-white">
+            <h2 class="font-poppins font-700 text-2xl sm:mr-4">DESCARGAR CV</h2>
+            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <mask
+                id="mask0_395_320"
+                style="mask-type: alpha"
+                maskUnits="userSpaceOnUse"
+                x="0"
+                y="0"
+                width="24"
+                height="25"
+              >
+                <rect y="0.5" width="24" height="24" fill="#D9D9D9" />
+              </mask>
+              <g mask="url(#mask0_395_320)">
+                <path
+                  d="M18 21.5L22 17.5L20.6 16.1L19 17.7V13.525H17V17.7L15.4 16.1L14 17.5L18 21.5ZM14 24.5V22.5H22V24.5H14ZM6 20.5C5.45 20.5 4.97917 20.3042 4.5875 19.9125C4.19583 19.5208 4 19.05 4 18.5V4.5C4 3.95 4.19583 3.47917 4.5875 3.0875C4.97917 2.69583 5.45 2.5 6 2.5H13L19 8.5V11.525H17V9.5H12V4.5H6V18.5H12V20.5H6Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <img class="w-full" src="assets/img/FotoAvatar.svg" alt="fotoAvatar" />
+  </div>
+
+  <!-- Segundo banner sobre mi -->
+  <div class="xl:flex items-center mt-5 xl:p-32">
+    <div class="xl:p-5">
+      <h2 class="text-5xl font-poppins font-800 text-primaryBlue text-center lg:text-left mb-5">Sobre mi</h2>
+      <p
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        class="text-center lg:text-left font-poppins font-500 text-black dark:text-white mt-2 xl:pr-28 xl:mb-3"
+      >
+        Tengo 25 años y desde que era niño he sentido una fascinación por la tecnología. Desde pequeño, experimentaba
+        una gran curiosidad y tenía una habilidad natural para entender y trabajar con ordenadores. La curiosidad
+        siempre ha sido mi principal motivación, ya que siempre me ha impulsado a buscar respuestas y soluciones a
+        cualquier problema que se me presente. Actualmente, estoy finalizando mis estudios en Teclab, donde he adquirido
+        una sólida base en diversas tecnologías. Además, tengo una pasión por la formación continua y me encanta
+        realizar cursos para perfeccionar tanto mis habilidades técnicas como mis habilidades blandas. También estoy
+        dedicado a aprender nuevos idiomas y actualmente estoy estudiando inglés para poder comunicarme de manera
+        efectiva en un entorno global.
+      </p>
+    </div>
+    <img data-aos="fade-left" data-aos-duration="1000" src="assets/img/ImagenPerfil.svg" alt="imagenPerfil" />
+  </div>
+
+  <!-- Banner gradient con informacion -->
+
+  <div class="xl:flex items-center justify-between my-10 xl:mb-32 xl:mt-0">
+    <app-informacion-about
+      data-aos="flip-left"
+      data-aos-duration="1000"
+      [numberInformacion]="'+1'"
+      [textoComplementario]="'Años de experiencia'"
+    ></app-informacion-about>
+    <app-informacion-about
+      data-aos="flip-left"
+      data-aos-duration="1000"
+      [numberInformacion]="'+9'"
+      [textoComplementario]="'Proyectos'"
+    ></app-informacion-about>
+    <app-informacion-about
+      data-aos="flip-left"
+      data-aos-duration="1000"
+      [numberInformacion]="'+5'"
+      [textoComplementario]="'Clientes'"
+    ></app-informacion-about>
+    <app-informacion-about
+      data-aos="flip-left"
+      data-aos-duration="1000"
+      [numberInformacion]="'+20'"
+      [textoComplementario]="'Skills'"
+    ></app-informacion-about>
+  </div>
+
+  <!-- Skills -->
+
+  <div>
+    <h2 class="text-primaryBlue text-center font-poppins font-800 text-5xl">Skills</h2>
+    <!-- Lenjuages de programacion -->
+    <div data-aos="zoom-in" data-aos-duration="1000">
+      <div class="border-b-2 border-primaryBlue mt-4">
+        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Lenguajes de programacion</h3>
+      </div>
+      <div class="flex flex-wrap">
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png'"
+          [nombreSkill]="'JavaScript'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/java.svg'"
+          [nombreSkill]="'Java'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png'
+          "
+          [nombreSkill]="'HTML'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png'
+          "
+          [nombreSkill]="'CSS'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png'"
+          [nombreSkill]="'SQL'"
+        ></app-tag-skills>
+      </div>
+    </div>
+
+    <!-- Front End -->
+    <div data-aos="zoom-in" data-aos-duration="1000">
+      <div class="border-b-2 border-primaryBlue mt-4">
+        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Front End</h3>
+      </div>
+      <div class="flex flex-wrap">
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://miro.medium.com/v2/resize:fit:1400/1*Klh1l7wkoG6PDPb9A5oCHQ.png'"
+          [nombreSkill]="'Angular'"
+        >
+        </app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png'"
+          [nombreSkill]="'React Js'"
+        >
+        </app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/next-js.svg'"
+          [nombreSkill]="'Next js'"
+        >
+        </app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png'
+          "
+          [nombreSkill]="'Sass'"
+        >
+        </app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png'
+          "
+          [nombreSkill]="'Bootstrap'"
+        >
+        </app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1280px-Tailwind_CSS_Logo.svg.png'
+          "
+          [nombreSkill]="'Tailwind css'"
+        >
+        </app-tag-skills>
+      </div>
+    </div>
+
+    <!-- Back End-->
+    <div data-aos="zoom-in" data-aos-duration="1000">
+      <div class="border-b-2 border-primaryBlue mt-4">
+        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Back End</h3>
+      </div>
+      <div class="flex flex-wrap">
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png'
+          "
+          [nombreSkill]="'Node Js + Express'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/nestjs.svg'"
+          [nombreSkill]="'Nest Js'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/spring-3.svg'"
+          [nombreSkill]="'Spring'"
+        ></app-tag-skills>
+      </div>
+    </div>
+
+    <!-- Base de datos-->
+    <div data-aos="zoom-in" data-aos-duration="1000">
+      <div class="border-b-2 border-primaryBlue mt-4">
+        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Base de datos</h3>
+      </div>
+      <div class="flex flex-wrap">
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://1000logos.net/wp-content/uploads/2020/08/MySQL-Logo.png'"
+          [nombreSkill]="'My Sql'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png'
+          "
+          [nombreSkill]="'Postgre Sql'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_wordmark_logo_icon_146425.png'
+          "
+          [nombreSkill]="'Mongo DB'"
+        ></app-tag-skills>
+      </div>
+    </div>
+
+    <!-- Control de versiones-->
+    <div data-aos="zoom-in" data-aos-duration="1000">
+      <div class="border-b-2 border-primaryBlue mt-4">
+        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Control de versiones</h3>
+      </div>
+      <div class="flex flex-wrap">
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png'"
+          [nombreSkill]="'Git'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn-icons-png.flaticon.com/512/25/25231.png'"
+          [nombreSkill]="'Git hub'"
+        ></app-tag-skills>
+      </div>
+    </div>
+
+    <!-- Gestion de proyectos-->
+    <div data-aos="zoom-in" data-aos-duration="1000">
+      <div class="border-b-2 border-primaryBlue mt-4">
+        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Gestion de proyectos</h3>
+      </div>
+      <div class="flex flex-wrap">
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://seeklogo.com/images/J/jira-logo-FD39F795A7-seeklogo.com.png'"
+          [nombreSkill]="'Jira'"
+        ></app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn-icons-png.flaticon.com/512/1377/1377259.png'"
+          [nombreSkill]="'Trello'"
+        ></app-tag-skills>
+      </div>
+    </div>
+
+    <!-- Despliegue de aplicaciones-->
+    <div data-aos="zoom-in" data-aos-duration="1000">
+      <div class="border-b-2 border-primaryBlue mt-4">
+        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Despliegue de aplicaciones</h3>
+      </div>
+      <div class="flex flex-wrap">
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png'
+          "
+          [nombreSkill]="'AWS'"
+        >
+        </app-tag-skills>
+
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://static-00.iconduck.com/assets.00/vercel-icon-512x449-3422jidz.png'"
+          [nombreSkill]="'Vercel'"
+        >
+        </app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png'"
+          [nombreSkill]="'Shopify'"
+        >
+        </app-tag-skills>
+        <app-tag-skills
+          class="w-1/2 xl:w-auto"
+          [imagenSkill]="'https://railway.app/brand/logotype-dark.svg'"
+          [nombreSkill]="'Railway'"
+        >
+        </app-tag-skills>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ultimos Proyectos-->
+
+  <div data-aos="fade-up" data-aos-duration="1000">
+    <h2 class="text-center font-poppins font-800 text-5xl text-primaryBlue mt-20">Ultimos Proyectos</h2>
+    <p class="font-poppins font-500 text-xl text-black dark:text-white my-5 xl:m-20 xl:px-52">
+      Aquí presento mis proyectos destacados, cada uno es un testimonio de mi pasión y dedicación en la creación de
+      soluciones únicas y efectivas. Estos proyectos han sido una oportunidad para enfrentar desafíos complejos y
+      aplicar mi creatividad y habilidades técnicas. ¡Espero que encuentres en ellos la misma inspiración y satisfacción
+      que yo sentí al desarrollarlos!
+    </p>
+
+    <div class="xl:flex justify-evenly">
+      @for (pagina of paginas; track $index) { @if (pagina.destacado==true) {
+      <app-card data-aos="fade-up" data-aos-duration="1000" [item]="pagina" />
+      } }
+    </div>
+    <div class="flex justify-center">
+      <button
+        [routerLink]="['/proyectos']"
+        class="bg-primaryBlue text-blackPrimary font-poppins font-800 text-xl px-24 py-3 rounded-44 mt-10 hover:scale-105"
+      >
+        Ver mas
+      </button>
+    </div>
+  </div>
+
+  <!-- Banner de contacto -->
+  <app-banner-contacto />
+</div>
+}

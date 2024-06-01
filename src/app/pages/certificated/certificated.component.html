@@ -1,0 +1,54 @@
+@if (loading) {<app-loader></app-loader>} @else{
+<div class="text-center border-b-2 border-primaryBlue mt-4 pb-10">
+  <h1 class="font-poppins font-800 text-3xl lg:text-3xl xl:text-5xl lg:px-72 text-primaryBlue mb-2">Certificados</h1>
+</div>
+
+<div class="container text-center mt-10">
+  <h2 class="font-poppins font-500 text-3xl lg:text-3xl xl:text-5xl lg:px-72 text-primaryBlue mb-8">
+    Carrera de grado
+  </h2>
+  <div class="mx-10 lg:mx-20">
+    <div class="flex flex-col lg:flex-row justify-between">
+      <img
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        (click)="openModal('Teclab')"
+        class="rounded-22"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTskIpnVo_cRsF7ujZ3hEs6fSLB2mLWSYvpM0hgAS4Hcw&s"
+        alt="teclab"
+      />
+    </div>
+  </div>
+
+  <h2 class="font-poppins font-500 text-3xl lg:text-3xl xl:text-5xl mt-8 lg:px-72 text-primaryBlue mb-8">Cursos</h2>
+
+  <div class="flex flex-col lg:flex-row gap-3 justify-between mx-10 lg:mx-20 mb-14">
+    <img
+      data-aos="fade-right"
+      data-aos-duration="1000"
+      (click)="openModal('Universidad Tecnologica Nacional')"
+      class="rounded-22"
+      src="https://www.frba.utn.edu.ar/wp-content/uploads/2020/11/utn-16-9.jpg"
+      alt="utn"
+    />
+    <img
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      (click)="openModal('Coderhouse')"
+      class="rounded-22"
+      src="https://upload.wikimedia.org/wikipedia/commons/7/75/Logo_blackbg.png"
+      alt="coderhouse"
+    />
+    <img
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      (click)="openModal('Ed Team')"
+      class="rounded-22"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/EDteam-logo-fondo-blanco.svg/2560px-EDteam-logo-fondo-blanco.svg.png"
+      alt="edteam"
+    />
+  </div>
+
+  @if (showModal) {<app-modal [institucion]="institucion" [certificados]="certificados" (closeModal)="closeModal()" />}
+</div>
+}

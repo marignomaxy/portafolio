@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '../node_modules/aos/dist/aos.css';
+
+body {
+  @apply bg-grayWhite;
+}
+
+body.dark {
+  @apply bg-bgColorDark;
+}
+
+// Definir las variables de color
+$gradient-start: #02c645;
+$gradient-mid: #36d0ff;
+$gradient-end: #00509b;
+
+// Definir la clase para el gradiente radial
+.gradient-radial {
+  // Aplicar el gradiente radial como fondo
+  background-image: radial-gradient(ellipse at right top, $gradient-start 2%, $gradient-mid 34%, $gradient-end 89%);
+}
+
+.colorSecond {
+  color: #00509b !important;
+
+  &:hover {
+    color: white !important;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+.light .loader {
+  color: black;
+}
+
+.light .loader::after {
+  color: #04bdf5;
+}
+
+.dark .loader {
+  color: white;
+}
+
+.dark .loader::after {
+  color: #04bdf5;
+}

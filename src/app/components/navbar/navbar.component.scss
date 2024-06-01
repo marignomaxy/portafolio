@@ -1,0 +1,22 @@
+/* Oculta los enlaces en pantallas pequeñas */
+
+.light-theme svg {
+  fill: black !important;
+}
+
+.verSecciones {
+  display: flex !important;
+}
+
+nav div div div svg {
+  max-width: 37px;
+}
+
+.desplegarMenu {
+  display: flex;
+}
+
+.imagenLogo {
+  max-width: 180px;
+  width: 100%;
+}

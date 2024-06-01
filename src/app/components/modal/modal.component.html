@@ -1,0 +1,25 @@
+<div class="fixed z-10 inset-0 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+    <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      class="inline-block align-bottom bg-darkGray rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle lg:mx-12"
+    >
+      <div class="flex flex-col lg:flex-row bg-darkGray px-4 pt-5 pb-4 sm:p-6 sm:pb-4 flex-wrap">
+        @for (certificado of certificados; track $index) { @if (certificado.institucion == institucion) {
+        <app-card-cert [certificado]="certificado" class="w-full lg:w-1/3 mb-4 lg:mb-0" />
+        } }
+        <div class="bg-darkGray px-4 py-3 sm:px-6 flex flex-row-reverse w-full">
+          <button
+            class="bg-secondBlue text-white px-6 py-1 rounded-22 font-poppins font-500 text-lg mt-2"
+            (click)="onClose()"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
