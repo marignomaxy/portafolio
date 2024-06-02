@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewEncapsulation } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { CommonModule } from '@angular/common'
 import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../environments/environment'
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { catchError } from 'rxjs/operators'
+import { throwError } from 'rxjs'
 
 @Component({
   selector: 'app-contact-me',
@@ -11,13 +14,14 @@ import { environment } from '../../../environments/environment'
   imports: [ReactiveFormsModule, MatTooltipModule, CommonModule],
   templateUrl: './contact-me.component.html',
   styleUrl: './contact-me.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ContactMeComponent implements OnInit {
   private urlBase = environment.apiUrl
   private url = `${this.urlBase}/enviarMail`
   formularioContacto!: FormGroup
 
-  constructor(private formbuilder: FormBuilder, private http: HttpClient) {}
+  constructor(private formbuilder: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {}
 
   ngOnInit() {
     this.formularioContacto = this.formbuilder.group({
@@ -32,8 +36,25 @@ export class ContactMeComponent implements OnInit {
   }
 
   onSubmit() {
-    this.http.post(this.url, this.formularioContacto.value).subscribe((response) => {
-      console.log('Correo enviado', response)
-    })
+    this.http
+      .post(this.url, this.formularioContacto.value)
+      .pipe(
+        catchError((error) => {
+          this.snackBar.open('Error al enviar el correo', 'Cerrar', {
+            duration: 5000,
+            horizontalPosition: 'center',
+            verticalPosition: 'bottom',
+          })
+          return throwError(() => error)
+        }),
+      )
+      .subscribe((response) => {
+        this.snackBar.open('Correo enviado', 'Cerrar', {
+          duration: 5000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        })
+        this.formularioContacto.reset()
+      })
   }
 }

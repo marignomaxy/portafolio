@@ -8,16 +8,8 @@
       </div>
       <!-- boton hamburguesa -->
       <div class="flex xl:hidden" (click)="toggleMenu()">
-        <svg
-          width="100%"
-          viewBox="0 0 18 12"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 12V10H18V12H0ZM0 7V5H18V7H0ZM0 2V0H18V2H0Z"
-            fill="#04BDF5"
-          />
+        <svg width="100%" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 12V10H18V12H0ZM0 7V5H18V7H0ZM0 2V0H18V2H0Z" fill="#04BDF5" />
         </svg>
       </div>
     </div>
@@ -116,17 +108,12 @@
         [routerLink]="['/']"
         routerLinkActive="bg-primaryBlue colorSecond"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="toggleMenu()"
         class="text-black dark:text-white font-poppins font-600 flex justify-between border-b border-solid px-4 py-5"
       >
         <h1>Inicio</h1>
         <!-- Logo Menu -->
-        <svg
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <mask
             id="mask0_382_2781"
             style="mask-type: alpha"
@@ -148,18 +135,13 @@
       </a>
       <a
         [routerLink]="['/proyectos']"
+        (click)="toggleMenu()"
         routerLinkActive="bg-primaryBlue colorSecond "
         class="text-black dark:text-white font-poppins font-600 flex justify-between border-b border-solid px-4 py-5"
       >
         <h1>Proyectos</h1>
         <!-- Logo Menu -->
-        <svg
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <mask
             id="mask0_382_2781"
             style="mask-type: alpha"
@@ -180,19 +162,14 @@
         </svg>
       </a>
       <a
+        (click)="toggleMenu()"
         [routerLink]="['/certificados']"
         routerLinkActive="bg-primaryBlue colorSecond "
         class="text-black dark:text-white font-poppins font-600 flex justify-between border-b border-solid px-4 py-5"
       >
         <h1>Certificados</h1>
         <!-- Logo Menu -->
-        <svg
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <mask
             id="mask0_382_2781"
             style="mask-type: alpha"
@@ -213,19 +190,14 @@
         </svg>
       </a>
       <a
+        (click)="toggleMenu()"
         [routerLink]="['/contacto']"
         routerLinkActive="bg-primaryBlue colorSecond"
         class="text-black dark:text-white font-poppins font-600 flex justify-between border-b border-solid mb-5 px-4 py-5"
       >
         <h1>Contacto</h1>
         <!-- Logo Menu -->
-        <svg
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
           <mask
             id="mask0_382_2781"
             style="mask-type: alpha"

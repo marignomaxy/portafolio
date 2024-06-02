@@ -1,0 +1,27 @@
+.mdc-snackbar__surface {
+  background-color: rgb(101, 247, 101) !important;
+  max-width: 350px !important;
+  width: 100% !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  min-width: 500px !important;
+  width: 100% !important;
+
+  @media (max-width: 599px) {
+    min-width: 100% !important;
+  }
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 1rem !important;
+}
+
+.mat-mdc-snack-bar-label {
+  color: black !important;
+}
+
+.mat-mdc-snack-bar-action {
+  color: black !important;
+}

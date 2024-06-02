@@ -1,5 +1,5 @@
 @if (loading) {<app-loader></app-loader>} @else {
-<div class="container p-5 mx-auto">
+<div class="container p-5 mx-auto overflow-x-hidden">
   <!-- Primer banner avatar -->
   <div class="xl:flex items-center">
     <div class="p-5">
@@ -10,12 +10,17 @@
         un enfoque dedicado en el aprendizaje constante, estoy listo para llevar tus proyectos al siguiente nivel.
       </p>
       <div class="flex flex-col items-center lg:flex-row">
-        <button
-          class="w-full border-4 border-primaryBlue border-solid rounded-44 px-14 py-3 mb-3 sm:mr-5 hover:scale-105"
+        <a
+          [routerLink]="['/contacto']"
+          class="w-full text-center border-4 border-primaryBlue border-solid rounded-44 px-14 py-3 mb-3 sm:mr-5 hover:scale-105"
         >
           <h2 class="font-poppins font-800 text-primaryBlue text-2xl">CONTACTAME</h2>
-        </button>
-        <button class="w-full bg-secondBlue rounded-44 px-14 py-3 mb-3 sm:mr-5 btn-neon">
+        </a>
+        <a
+          href="https://drive.google.com/uc?export=download&id=11ZmAUYxDK3aVlRzLHMIL-AeTCNUrOAdA"
+          download
+          class="w-full bg-secondBlue rounded-44 px-14 py-3 mb-3 sm:mr-5 btn-neon"
+        >
           <span id="span1"></span>
 
           <span id="span3"></span>
@@ -42,7 +47,7 @@
               </g>
             </svg>
           </div>
-        </button>
+        </a>
       </div>
     </div>
     <img class="w-full" src="assets/img/FotoAvatar.svg" alt="fotoAvatar" />
