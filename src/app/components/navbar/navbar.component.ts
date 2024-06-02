@@ -13,9 +13,13 @@ import { take } from 'rxjs/operators'
 })
 export class NavbarComponent {
   menuOpen = false
-  isLightTheme = false
+  isLightTheme!: boolean
 
-  constructor(private lightDark: LightDarkService) {}
+  constructor(private lightDark: LightDarkService) {
+    this.lightDark.isDarkTheme.pipe(take(1)).subscribe((isDark) => {
+      this.isLightTheme = !isDark
+    })
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen
@@ -23,7 +27,6 @@ export class NavbarComponent {
 
   cambioTema() {
     this.lightDark.isDarkTheme.pipe(take(1)).subscribe((isDark) => {
-      console.log('Cambio de tema', isDark)
       this.lightDark.setDarkTheme(!isDark)
       this.isLightTheme = !this.isLightTheme
     })
