@@ -1,27 +1,52 @@
-# Portafolio
+# 🌟 Mi Portafolio Personal 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+¡Bienvenido a mi portafolio personal! Este proyecto está construido con Angular y muestra mis habilidades, proyectos y logros como desarrollador. ¡Siéntete libre de explorar y de contactarme si deseas colaborar o simplemente saludar! 
 
-## Development server
+## 🛠 Tecnologías Utilizadas
+- **Angular**: Un potente framework para construir aplicaciones web dinámicas.
+- **TypeScript**: Código con tipado estático que escala.
+- **SCSS**: CSS mejorado para estilos más limpios y mantenibles.
+- **HTML5**: La columna vertebral de la web.
+- **Node.js**: Entorno de ejecución de JavaScript del lado del servidor para el desarrollo.
+- **Angular CLI**: Interfaz de línea de comandos para proyectos Angular.
+- **Angular Material**: Componentes de interfaz de usuario modernos y responsivos.
+- **Tailwind CSS**: Un framework CSS utilitario para diseñar rápidamente sin salir del HTML.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## 🚀 Cómo Empezar
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Para ejecutar este proyecto localmente, sigue estos pasos:
 
-## Build
+1. **Clona el repositorio**:
+    ```sh
+    git clone https://github.com/marignomaxy/portafolio.git
+    cd portafolio
+    ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. **Instala las dependencias**:
+    ```sh
+    npm install
+    ```
 
-## Running unit tests
+3. **Ejecuta el servidor de desarrollo**:
+    ```sh
+    ng serve
+    ```
+    Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 📈 Funcionalidades
 
-## Running end-to-end tests
+- **Diseño Responsivo**: Funciona perfectamente en todos los dispositivos.
+- **Contenido Dinámico**: Actualiza fácilmente proyectos y habilidades a través de una única fuente de verdad.
+- **Interfaz Moderna**: Interfaz de usuario limpia e intuitiva.
+- **Rendimiento Optimizado**: Rápido y eficiente.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## 📧 Contacto
+Si tienes alguna pregunta o quieres contactarme, puedes encontrarme en:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Email: marignomaxy@gmail.com
+- LinkedIn: [Maximiliano Marigno](https://www.linkedin.com/in/maximiliano-marigno/)
+
+
+¡Gracias por visitar mi portafolio! ¡Que tengas un gran día! 😊
