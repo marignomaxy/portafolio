@@ -4,6 +4,10 @@
   width: 100% !important;
 }
 
+.dark\:text-black:is(.dark *) {
+  color: rgb(0 0 0 / var(--tw-text-opacity)) !important;
+}
+
 .mat-mdc-snack-bar-container .mdc-snackbar__surface {
   min-width: 500px !important;
   width: 100% !important;
