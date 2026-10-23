@@ -29,11 +29,13 @@ Validación final, 23 de octubre de 2026:
 
 ## Límites y siguientes aportes
 
-- No se realizó despliegue de producción ni cambios en cuentas de Vercel/Supabase o visibilidad de repositorios.
+- La publicación se realizó mediante el repositorio conectado a Vercel; no se crearon cuentas ni se modificó la visibilidad de repositorios o servicios de Supabase.
 - Los cinco certificados de Platzi recibidos quedaron incorporados; no se requieren contraseñas.
 - Casos individuales del trabajo requieren una descripción compartible del problema, aporte y resultado. Hasta entonces se representan dentro de la experiencia laboral.
 - Los visuales de proyectos son composiciones de presentación identificadas como tales; Saint James se presenta como concepto con interacciones simuladas.
 
 ## Publicación solicitada
 
-El usuario autorizó publicar y confirmó la conexión automática del repositorio con Vercel. Rama local y remota de producción: `main`. El ingreso directo a Vercel no es necesario; la publicación se realiza mediante el repositorio conectado. La verificación pública se registra después del despliegue.
+El usuario autorizó publicar y confirmó la conexión automática del repositorio con Vercel. Rama local y remota de producción: `main`. Se subió el commit `be539e7c18d44ef98cbee1d72c88dc1b8a404e0d`; GitHub mostró el check de Vercel aprobado con «Deployment has completed».
+
+Verificación pública del 23 de octubre de 2026: `https://portafoliomarignomaximiliano.vercel.app/` muestra la nueva portada y los cinco cursos de Platzi destacados. La vista previa de Spec Driven Development carga desde assets de producción y el acceso directo a `/proyectos/nexio` renderiza la ficha correctamente. URL del despliegue en Vercel: `https://vercel.com/marignomaxys-projects/portafolio/AyWcLsXYPvuV2XrNWNH3ALegKKHC`.

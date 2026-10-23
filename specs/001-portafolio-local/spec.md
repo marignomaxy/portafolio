@@ -1,6 +1,6 @@
 # SDD 001 · Portafolio local
 
-Estado: implementado y validado localmente · Actualización: 2026-10-23
+Estado: implementado, validado y publicado · Actualización: 2026-10-23
 
 ## Objetivo
 
@@ -30,7 +30,7 @@ Presentar el trabajo de Maximiliano a reclutadores y clientes freelance mediante
 - Navegación: los enlaces de sección funcionan desde inicio y detalle; Escape cierra el menú móvil. Una URL desconocida no rompe el renderizado.
 - Contenido: los datos de una ficha y sus vistas resumidas provienen del mismo registro. No hay estadísticas comerciales ni años de experiencia inferidos.
 - Contacto: campos inválidos muestran explicación; correo preparado usa asunto y cuerpo codificados y no produce solicitudes HTTP.
-- Dependencias externas: las demos, redes y cualquier modelo opcional no son necesarias para ver el portafolio.
+- Dependencias externas: las demos y redes no son necesarias para ver el portafolio; no se incluye un modelo de IA.
 
 ## Fuera de alcance
 
