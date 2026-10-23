@@ -1,29 +1,28 @@
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
+describe('Navegación del portafolio', () => {
+  beforeEach(() => {
+    localStorage.removeItem('mm-theme');
+    TestBed.configureTestingModule({imports: [AppComponent], providers: [provideRouter([])]});
   });
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('abre el menú móvil y lo cierra con Escape', () => {
+    const fixture = TestBed.createComponent(AppComponent); fixture.detectChanges();
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('[aria-controls="mobile-navigation"]');
+    button.click(); fixture.detectChanges();
+    expect(button.getAttribute('aria-expanded')).toBe('true');
+    expect(fixture.nativeElement.querySelector('#mobile-navigation')).not.toBeNull();
+    window.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape'})); fixture.detectChanges();
+    expect(button.getAttribute('aria-expanded')).toBe('false');
+    expect(fixture.nativeElement.querySelector('#mobile-navigation')).toBeNull();
   });
-
-  it(`should have the 'portafolio' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('portafolio');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, portafolio');
+  it('cambia y conserva la preferencia de tema', () => {
+    const fixture = TestBed.createComponent(AppComponent); fixture.detectChanges();
+    fixture.componentInstance.toggleTheme(); fixture.detectChanges();
+    expect(document.documentElement.dataset['theme']).toBe('light');
+    expect(localStorage.getItem('mm-theme')).toBe('light');
+    expect(fixture.nativeElement.querySelector('[aria-label="Activar tema oscuro"]')).not.toBeNull();
+    fixture.componentInstance.toggleTheme();
   });
 });

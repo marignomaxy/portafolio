@@ -1,366 +1,95 @@
-@if (loading) {<app-loader></app-loader>} @else {
-<div class="container p-5 mx-auto overflow-x-hidden">
-  <!-- Primer banner avatar -->
-  <div class="xl:flex items-center">
-    <div class="p-5">
-      <h1 class="text-5xl font-poppins font-800 text-primaryBlue mb-1">Hola,soy Maximiliano Marigno</h1>
-      <p class="font-poppins font-500 text-black dark:text-white lg:pr-28 mb-3 mt-2 lg:mb-6 text-center lg:text-left">
-        ¡Bienvenido/a a mi portafolio web! Soy un apasionado programador Full Stack con formación académica en diversas
-        tecnologías. Estoy preparado para enfrentar desafíos emocionantes y contribuir con soluciones innovadoras. Con
-        un enfoque dedicado en el aprendizaje constante, estoy listo para llevar tus proyectos al siguiente nivel.
-      </p>
-      <div class="flex flex-col items-center lg:flex-row">
-        <a
-          [routerLink]="['/contacto']"
-          class="w-full text-center border-4 border-primaryBlue border-solid rounded-44 px-14 py-3 mb-3 sm:mr-5 hover:scale-105"
-        >
-          <h2 class="font-poppins font-800 text-primaryBlue text-2xl">CONTACTAME</h2>
+<main>
+  <section id="inicio" class="hero wrap" aria-labelledby="hero-heading">
+    <div class="hero-eyebrow"><span class="status-dot" aria-hidden="true"></span> SOFTWARE DEVELOPER · FULL STACK <span class="hero-location">LA PLATA, ARGENTINA ↗</span></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 id="hero-heading">Ideas claras.<br>Productos que<br><em>funcionan.</em></h1>
+        <p class="hero-intro">{{ profile.intro }}</p>
+        <div class="hero-actions"><a href="#trabajos" class="button button-accent">Explorar proyectos <app-icon name="arrow-down" /></a><a [href]="profile.cvUrl" download class="text-link">Mi CV <app-icon name="download" /></a></div>
+      </div>
+      <div class="hero-art" aria-label="Una selección de mis proyectos">
+        <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+        <div class="art-cross" aria-hidden="true"><app-icon name="spark" /></div>
+        <a class="hero-project hero-project-main" [routerLink]="['/proyectos', allProjects[0].id]" aria-label="Explorar el proyecto Nexio">
+          <div class="mini-browser"><span></span><span></span><span></span><small>nexio-apps.com</small><app-icon name="arrow-up-right" /></div>
+          <img [src]="allProjects[0].image" [alt]="allProjects[0].imageAlt" width="1440" height="900" fetchpriority="high">
+          <div class="hero-project-label"><span>01 / PRODUCTO DIGITAL</span><strong>{{ allProjects[0].name }} <app-icon name="arrow-up-right" /></strong></div>
         </a>
-        <a
-          href="/assets/pdf/Cv-Maximiliano-Marigno.pdf"
-          download
-          class="w-full bg-secondBlue rounded-44 px-14 py-3 mb-3 sm:mr-5 btn-neon"
-        >
-          <span id="span1"></span>
+        <a class="hero-project hero-project-secondary" [routerLink]="['/proyectos', allProjects[2].id]" aria-label="Explorar el proyecto Kreativa Studio">
+          <img [src]="allProjects[2].image" [alt]="allProjects[2].imageAlt" width="1440" height="900">
+          <span>Kreativa Studio <app-icon name="arrow-up-right" /></span>
+        </a>
+        <div class="craft-label"><span class="craft-symbol" aria-hidden="true">✳</span><span>DE LA IDEA<br>AL PRODUCTO.</span></div>
+      </div>
+    </div>
+    <div class="hero-baseline"><span>ANGULAR <i>+</i> JAVA <i>+</i> CRITERIO DE PRODUCTO</span><span class="hero-availability">{{ profile.availability }}</span><a href="#trabajos" aria-label="Bajar a proyectos"><app-icon name="arrow-down" /></a></div>
+  </section>
 
-          <span id="span3"></span>
+  <section class="work-section" id="trabajos" aria-labelledby="work-heading">
+    <div class="wrap">
+      <div class="section-topline"><span class="eyebrow">01 / TRABAJO SELECCIONADO</span><span class="section-side-note">Ideas que ya se pueden recorrer.</span></div>
+      <div class="section-heading-row"><h2 id="work-heading">Del problema<br>al <em>producto.</em></h2><p>Aplicaciones, comercio y experiencias web.<br>Cuatro formas de convertir una idea en algo concreto.</p></div>
+      <div class="project-toolbar"><div class="filter-group" aria-label="Filtrar proyectos">@for (option of projectFilters; track option) {<button type="button" (click)="setFilter(option)" [class.active]="filter() === option" [attr.aria-pressed]="filter() === option">{{ option }}</button>}</div><span class="project-total">{{ position(filteredProjects().length - 1) }} proyectos</span></div>
 
-          <div class="flex items-center justify-center text-white">
-            <h2 class="font-poppins font-700 text-2xl sm:mr-4 whitespace-nowrap">DESCARGAR CV</h2>
-            <div class="flex-shrink-0">
-              <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <mask
-                  id="mask0_395_320"
-                  style="mask-type: alpha"
-                  maskUnits="userSpaceOnUse"
-                  x="0"
-                  y="0"
-                  width="24"
-                  height="25"
-                >
-                  <rect y="0.5" width="24" height="24" fill="#D9D9D9" />
-                </mask>
-                <g mask="url(#mask0_395_320)">
-                  <path
-                    d="M18 21.5L22 17.5L20.6 16.1L19 17.7V13.525H17V17.7L15.4 16.1L14 17.5L18 21.5ZM14 24.5V22.5H22V24.5H14ZM6 20.5C5.45 20.5 4.97917 20.3042 4.5875 19.9125C4.19583 19.5208 4 19.05 4 18.5V4.5C4 3.95 4.19583 3.47917 4.5875 3.0875C4.97917 2.69583 5.45 2.5 6 2.5H13L19 8.5V11.525H17V9.5H12V4.5H6V18.5H12V20.5H6Z"
-                    fill="currentColor"
-                  />
-                </g>
-              </svg>
+      <div class="project-carousel" role="region" aria-roledescription="carrusel" aria-label="Proyectos seleccionados" tabindex="0" (keydown)="onCarouselKey($event)">
+        @for (project of [activeProject()]; track project.id) {
+          <article class="project-slide" [attr.data-project]="project.id" role="group" aria-roledescription="diapositiva" [attr.aria-label]="position(selectedIndex()) + ' de ' + filteredProjects().length + ': ' + project.name">
+            <a class="project-visual" [routerLink]="['/proyectos', project.id]" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)" [attr.aria-label]="'Ver el caso de ' + project.name">
+              <img [src]="project.image" [alt]="project.imageAlt" width="1440" height="900" loading="lazy">
+              <span class="visual-open"><app-icon name="arrow-up-right" /></span>
+              <span class="visual-caption">{{ project.imageCaption }}</span>
+            </a>
+            <div class="project-story">
+              <div class="project-story-top"><span>{{ project.category }}</span><span>{{ project.year }}</span></div>
+              <p class="project-status"><span></span>{{ project.status }}</p>
+              <h3>{{ project.name }}</h3><p class="project-summary">{{ project.summary }}</p>
+              <div class="project-tech">@for (tech of project.technologies; track tech) {<span>{{ tech }}</span>}</div>
+              <a class="project-case-link" [routerLink]="['/proyectos', project.id]">Conocer el proyecto <app-icon name="arrow-up-right" /></a>
+              @if (!project.featured) {<p class="concept-note">Proyecto adicional · Propuesta visual con interacciones simuladas.</p>}
             </div>
-          </div>
-        </a>
+          </article>
+        }
+        <div class="carousel-navigation"><div class="carousel-pages" aria-label="Seleccionar un proyecto">@for (project of filteredProjects(); track project.id; let index = $index) {<button type="button" (click)="selectProject(index)" [class.active]="selectedIndex() === index" [attr.aria-label]="'Mostrar ' + project.name" [attr.aria-pressed]="selectedIndex() === index"><span>{{ project.number }}</span><span class="carousel-project-name">{{ project.name }}</span><i></i></button>}</div><div class="carousel-arrows"><button type="button" class="round-button" (click)="moveProject(-1)" aria-label="Proyecto anterior"><app-icon name="arrow-left" /></button><button type="button" class="round-button" (click)="moveProject(1)" aria-label="Proyecto siguiente"><app-icon name="arrow-right" /></button></div></div>
+        <p class="sr-only" aria-live="polite" aria-atomic="true">{{ activeProject().name }}. Proyecto {{ selectedIndex() + 1 }} de {{ filteredProjects().length }}.</p>
       </div>
     </div>
-    <img class="w-full" src="assets/img/FotoAvatar.svg" alt="fotoAvatar" />
-  </div>
+  </section>
 
-  <!-- Segundo banner sobre mi -->
-  <div class="xl:flex items-center mt-5 xl:p-32">
-    <div class="xl:p-5">
-      <h2 class="text-5xl font-poppins font-800 text-primaryBlue text-center lg:text-left mb-5">Sobre mi</h2>
-      <p
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        class="text-center lg:text-left font-poppins font-500 text-black dark:text-white mt-2 xl:pr-28 xl:mb-3"
-      >
-        Tengo 25 años y desde que era niño he sentido una fascinación por la tecnología. Desde pequeño, experimentaba
-        una gran curiosidad y tenía una habilidad natural para entender y trabajar con ordenadores. La curiosidad
-        siempre ha sido mi principal motivación, ya que siempre me ha impulsado a buscar respuestas y soluciones a
-        cualquier problema que se me presente. Actualmente, estoy finalizando mis estudios en Teclab, donde he adquirido
-        una sólida base en diversas tecnologías. Además, tengo una pasión por la formación continua y me encanta
-        realizar cursos para perfeccionar tanto mis habilidades técnicas como mis habilidades blandas. También estoy
-        dedicado a aprender nuevos idiomas y actualmente estoy estudiando inglés para poder comunicarme de manera
-        efectiva en un entorno global.
-      </p>
-    </div>
-    <img data-aos="fade-left" data-aos-duration="1000" src="assets/img/ImagenPerfil.svg" alt="imagenPerfil" />
-  </div>
-
-  <!-- Banner gradient con informacion -->
-
-  <div class="xl:flex items-center justify-between my-10 xl:mb-32 xl:mt-0">
-    <app-informacion-about
-      data-aos="flip-left"
-      data-aos-duration="1000"
-      [numberInformacion]="'+1'"
-      [textoComplementario]="'Años de experiencia'"
-    ></app-informacion-about>
-    <app-informacion-about
-      data-aos="flip-left"
-      data-aos-duration="1000"
-      [numberInformacion]="'+9'"
-      [textoComplementario]="'Proyectos'"
-    ></app-informacion-about>
-    <app-informacion-about
-      data-aos="flip-right"
-      data-aos-duration="1000"
-      [numberInformacion]="'+5'"
-      [textoComplementario]="'Clientes'"
-    ></app-informacion-about>
-    <app-informacion-about
-      data-aos="flip-right"
-      data-aos-duration="1000"
-      [numberInformacion]="'+20'"
-      [textoComplementario]="'Skills'"
-    ></app-informacion-about>
-  </div>
-
-  <!-- Skills -->
-
-  <div>
-    <h2 class="text-primaryBlue text-center font-poppins font-800 text-5xl">Skills</h2>
-    <!-- Lenjuages de programacion -->
-    <div data-aos="zoom-in" data-aos-duration="1000">
-      <div class="border-b-2 border-primaryBlue mt-4">
-        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Lenguajes de programacion</h3>
-      </div>
-      <div class="flex flex-wrap">
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png'"
-          [nombreSkill]="'JavaScript'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/java.svg'"
-          [nombreSkill]="'Java'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/2048px-HTML5_logo_and_wordmark.svg.png'
-          "
-          [nombreSkill]="'HTML'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png'
-          "
-          [nombreSkill]="'CSS'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png'"
-          [nombreSkill]="'SQL'"
-        ></app-tag-skills>
+  <section id="sobre-mi" class="about-section wrap" aria-labelledby="about-heading">
+    <div class="section-topline"><span class="eyebrow">02 / DETRÁS DEL CÓDIGO</span><span class="section-side-note">Curiosidad. Criterio. Construcción.</span></div>
+    <div class="about-grid"><div><h2 id="about-heading">Pienso en<br>personas.<br><em>Construyo<br>con código.</em></h2><div class="about-signature">{{ profile.shortName }} <app-icon name="spark" /></div></div>
+      <div class="about-content"><p class="about-lead">{{ profile.about }}</p><p>{{ profile.approach }}</p><div class="about-location"><app-icon name="location" />{{ profile.location }} <span>·</span> Trabajo en equipo y proyectos propios</div>
+        <div class="experience-list">@for (item of experience; track item.company) {<article><div class="timeline-dot" aria-hidden="true"></div><span class="small-label">{{ item.period }}</span><h3>{{ item.role }}</h3><p class="experience-company">{{ item.company }}</p><p>{{ item.highlights.join(" ") }} {{ item.confidentiality }}</p></article>}</div>
+        <a [href]="profile.cvUrl" download class="text-link">Conocé mi recorrido completo <app-icon name="download" /></a>
       </div>
     </div>
+    <div class="stack-grid">@for (group of skills; track group.label; let index = $index) {<article><span class="small-label">{{ position(index) }} / {{ group.label }}</span><div>@for (skill of group.items; track skill) {<span>{{ skill }}</span>}</div></article>}</div>
+  </section>
 
-    <!-- Front End -->
-    <div data-aos="zoom-in" data-aos-duration="1000">
-      <div class="border-b-2 border-primaryBlue mt-4">
-        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Front End</h3>
-      </div>
-      <div class="flex flex-wrap">
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://miro.medium.com/v2/resize:fit:1400/1*Klh1l7wkoG6PDPb9A5oCHQ.png'"
-          [nombreSkill]="'Angular'"
-        >
-        </app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png'"
-          [nombreSkill]="'React Js'"
-        >
-        </app-tag-skills>
-        <!--
-          A la espera que aprenda Next Js
-          <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/next-js.svg'"
-          [nombreSkill]="'Next js'"
-        >
-        </app-tag-skills>
-        -->
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png'
-          "
-          [nombreSkill]="'Sass'"
-        >
-        </app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1200px-Bootstrap_logo.svg.png'
-          "
-          [nombreSkill]="'Bootstrap'"
-        >
-        </app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1280px-Tailwind_CSS_Logo.svg.png'
-          "
-          [nombreSkill]="'Tailwind css'"
-        >
-        </app-tag-skills>
-      </div>
-    </div>
+  <section class="process-section" aria-labelledby="process-heading"><div class="wrap process-inner"><div class="process-title"><app-icon name="spark" /><h2 id="process-heading">Buen diseño.<br>Buenas decisiones.</h2></div><div class="process-steps"><article><span>01</span><h3>Entender</h3><p>El problema, las personas y lo que realmente necesita el producto.</p></article><article><span>02</span><h3>Construir</h3><p>Interfaces claras y desarrollo guiado por especificaciones.</p></article><article><span>03</span><h3>Mejorar</h3><p>Probar, documentar y ajustar con intención en cada entrega.</p></article></div></div></section>
 
-    <!-- Back End-->
-    <div data-aos="zoom-in" data-aos-duration="1000">
-      <div class="border-b-2 border-primaryBlue mt-4">
-        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Back End</h3>
-      </div>
-      <div class="flex flex-wrap">
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png'
-          "
-          [nombreSkill]="'Node Js + Express'"
-        ></app-tag-skills>
-        <!--
-          A la espera que aprenda Nest Js
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/nestjs.svg'"
-          [nombreSkill]="'Nest Js'"
-        ></app-tag-skills>
-        -->
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn.worldvectorlogo.com/logos/spring-3.svg'"
-          [nombreSkill]="'Spring'"
-        ></app-tag-skills>
-      </div>
-    </div>
+  <section id="formacion" class="education-section wrap" aria-labelledby="education-heading">
+    <div class="section-topline"><span class="eyebrow">03 / APRENDER PARA CONSTRUIR</span><span class="section-side-note">El aprendizaje también es parte del trabajo.</span></div>
+    <div class="section-heading-row"><h2 id="education-heading">La curiosidad<br>no se <em>gradúa.</em></h2><p>Formación académica y herramientas<br>que voy sumando al camino.</p></div>
+    <div class="degree-card"><div class="degree-icon" aria-hidden="true"><app-icon name="code" /></div><div><span class="small-label">FORMACIÓN ACADÉMICA · {{ degree.year }}</span><h3>{{ degree.title }}</h3><p>{{ degree.issuer }}</p></div>@if (degree.asset || degree.preview) {<button type="button" class="round-button" (click)="openCertificate(degree, $event)" aria-label="Ver diploma de la tecnicatura"><app-icon name="arrow-up-right" /></button>} @else {<span class="degree-verified"><app-icon name="check" /> Estudios finalizados</span>}</div>
+    @if (intermediateDegree; as item) {<button type="button" class="intermediate-certificate text-link" (click)="openCertificate(item, $event)">Ver constancia de formación intermedia <app-icon name="arrow-up-right" /></button>}
+    <div class="education-toolbar"><h3>Cursos & especialización</h3><div class="filter-group" aria-label="Filtrar formación">@for (option of educationFilters; track option) {<button type="button" (click)="educationFilter.set(option)" [class.active]="educationFilter() === option" [attr.aria-pressed]="educationFilter() === option">{{ option }}</button>}</div></div>
+    <div class="education-list" aria-live="polite">@for (item of visibleEducation(); track item.id) {<article class="education-row"><span class="education-mark" aria-hidden="true">{{ item.title.slice(0, 2) }}</span><div><h4>{{ item.title }}</h4><p>{{ item.issuer || item.category }}@if (item.year) {<span> · {{ item.year }}</span>}</p></div>@if (item.asset || item.preview) {<button type="button" class="certificate-button" (click)="openCertificate(item, $event)" [attr.aria-label]="'Ver certificado de ' + item.title"><span>Ver certificado</span><app-icon name="arrow-up-right" /></button>} @else {<span class="credential-note">Formación complementaria</span>}</article>}</div>
+  </section>
 
-    <!-- Base de datos-->
-    <div data-aos="zoom-in" data-aos-duration="1000">
-      <div class="border-b-2 border-primaryBlue mt-4">
-        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Base de datos</h3>
-      </div>
-      <div class="flex flex-wrap">
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://1000logos.net/wp-content/uploads/2020/08/MySQL-Logo.png'"
-          [nombreSkill]="'My Sql'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/1200px-Postgresql_elephant.svg.png'
-          "
-          [nombreSkill]="'Postgre Sql'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_wordmark_logo_icon_146425.png'
-          "
-          [nombreSkill]="'Mongo DB'"
-        ></app-tag-skills>
-      </div>
-    </div>
-
-    <!-- Control de versiones-->
-    <div data-aos="zoom-in" data-aos-duration="1000">
-      <div class="border-b-2 border-primaryBlue mt-4">
-        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Control de versiones</h3>
-      </div>
-      <div class="flex flex-wrap">
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png'"
-          [nombreSkill]="'Git'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn-icons-png.flaticon.com/512/25/25231.png'"
-          [nombreSkill]="'Git hub'"
-        ></app-tag-skills>
-      </div>
-    </div>
-
-    <!-- Gestion de proyectos-->
-    <div data-aos="zoom-in" data-aos-duration="1000">
-      <div class="border-b-2 border-primaryBlue mt-4">
-        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Gestion de proyectos</h3>
-      </div>
-      <div class="flex flex-wrap">
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://seeklogo.com/images/J/jira-logo-FD39F795A7-seeklogo.com.png'"
-          [nombreSkill]="'Jira'"
-        ></app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn-icons-png.flaticon.com/512/1377/1377259.png'"
-          [nombreSkill]="'Trello'"
-        ></app-tag-skills>
-      </div>
-    </div>
-
-    <!-- Despliegue de aplicaciones-->
-    <div data-aos="zoom-in" data-aos-duration="1000">
-      <div class="border-b-2 border-primaryBlue mt-4">
-        <h3 class="text-primaryBlue font-poppins font-600 text-3xl pb-3 ml-4">Despliegue de aplicaciones</h3>
-      </div>
-      <div class="flex flex-wrap">
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png'
-          "
-          [nombreSkill]="'AWS'"
-        >
-        </app-tag-skills>
-
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://www.svgrepo.com/show/327408/logo-vercel.svg'"
-          [nombreSkill]="'Vercel'"
-        >
-        </app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-512.png'"
-          [nombreSkill]="'Shopify'"
-        >
-        </app-tag-skills>
-        <app-tag-skills
-          class="w-1/2 xl:w-auto"
-          [imagenSkill]="'https://railway.app/brand/logotype-dark.svg'"
-          [nombreSkill]="'Railway'"
-        >
-        </app-tag-skills>
-      </div>
-    </div>
-  </div>
-
-  <!-- Ultimos Proyectos-->
-
-  <div data-aos="fade-up" data-aos-duration="1000">
-    <h2 class="text-center font-poppins font-800 text-5xl text-primaryBlue mt-20">Proyectos Destacados</h2>
-    <p class="font-poppins font-500 text-xl text-black dark:text-white my-5 xl:m-20 xl:px-52">
-      Aquí presento mis proyectos destacados, cada uno es un testimonio de mi pasión y dedicación en la creación de
-      soluciones únicas y efectivas. Estos proyectos han sido una oportunidad para enfrentar desafíos complejos y
-      aplicar mi creatividad y habilidades técnicas. ¡Espero que encuentres en ellos la misma inspiración y satisfacción
-      que yo sentí al desarrollarlos!
-    </p>
-
-    <div class="xl:flex justify-evenly">
-      @for (pagina of paginas; track $index) { @if (pagina.destacado==true) {
-      <app-card data-aos="fade-up" data-aos-duration="1000" [item]="pagina" />
-      } }
-    </div>
-    <div class="flex justify-center">
-      <button
-        [routerLink]="['/proyectos']"
-        class="bg-primaryBlue text-blackPrimary font-poppins font-800 text-xl px-24 py-3 rounded-44 mt-10 hover:scale-105"
-      >
-        Ver mas
-      </button>
-    </div>
-  </div>
-
-  <!-- Banner de contacto -->
-  <app-banner-contacto />
-</div>
-}
+  <section id="contacto" class="contact-section" aria-labelledby="contact-heading"><div class="wrap"><div class="section-topline"><span class="eyebrow">04 / LO PRÓXIMO LO CONSTRUIMOS JUNTOS</span><app-icon name="spark" /></div>
+    <div class="contact-grid"><div class="contact-copy"><h2 id="contact-heading">¿Tenés algo<br>en <em>mente?</em><span>↗</span></h2><p>Una idea que necesita forma.<br>Un equipo al que pueda aportar.<br>Una conversación para empezar.</p><a class="contact-email" [href]="'mailto:' + profile.email">{{ profile.email }}</a><div class="contact-direct"><button type="button" (click)="copyEmail()"><app-icon [name]="copyStatus() === 'Email copiado' ? 'check' : 'copy'" />Copiar email</button><a [href]="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn <app-icon name="arrow-up-right" /></a></div><p class="copy-status" role="status">{{ copyStatus() }}</p></div>
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="prepareEmail()" novalidate>
+      <fieldset><legend>¿Qué te trae por acá?</legend><div class="intent-options"><button type="button" (click)="intent.set('proyecto')" [attr.aria-pressed]="intent() === 'proyecto'" [class.selected]="intent() === 'proyecto'">Tengo un proyecto <app-icon name="arrow-up-right" /></button><button type="button" (click)="intent.set('equipo')" [attr.aria-pressed]="intent() === 'equipo'" [class.selected]="intent() === 'equipo'">Sumarte a un equipo <app-icon name="plus" /></button></div></fieldset>
+      <div class="form-field"><label for="contact-name">Tu nombre</label><input id="contact-name" type="text" formControlName="name" placeholder="¿Cómo te llamás?" autocomplete="name" maxlength="80" [attr.aria-invalid]="isInvalid('name')" [attr.aria-describedby]="isInvalid('name') ? 'name-error' : null" required>@if (isInvalid('name')) {<small id="name-error">Ingresá tu nombre, con al menos 2 caracteres.</small>}</div>
+      <div class="form-field"><label for="contact-message">Contame un poco más</label><textarea id="contact-message" formControlName="message" placeholder="La idea, el desafío o la oportunidad…" rows="3" maxlength="2000" [attr.aria-invalid]="isInvalid('message')" [attr.aria-describedby]="isInvalid('message') ? 'message-error' : null" required></textarea>@if (isInvalid('message')) {<small id="message-error">Escribí al menos 15 caracteres para contarme de qué se trata.</small>}</div>
+      <button class="button button-accent" type="submit">Preparar correo <app-icon name="arrow-up-right" /></button><p class="form-note">Se abre tu aplicación de correo con un borrador.<br>Vos lo revisás y decidís cuándo enviarlo.</p><p class="form-status" role="status">{{ contactStatus() }}</p>
+    </form></div></div>
+  </section>
+</main>
+<dialog #certificateDialog class="certificate-dialog" aria-labelledby="certificate-title" (click)="onDialogClick($event)" (cancel)="closeCertificate()">
+  @if (selectedCertificate(); as item) {<div class="certificate-modal-header"><div><span class="small-label">{{ item.issuer }}</span><h2 id="certificate-title">{{ item.title }}</h2></div><button type="button" class="icon-button" (click)="closeCertificate()" aria-label="Cerrar certificado"><app-icon name="close" /></button></div>
+    @if (item.preview) {<img [src]="item.preview" [alt]="'Certificado de ' + item.title" class="certificate-preview">}
+    @if (item.asset) {<a [href]="item.asset" target="_blank" rel="noopener noreferrer" class="button button-accent">Abrir certificado <app-icon name="arrow-up-right" /></a>}
+  }
+</dialog>

@@ -1,52 +1,40 @@
-# 🌟 Mi Portafolio Personal 
+# Maximiliano Marigno · Portafolio
 
-¡Bienvenido a mi portafolio personal! Este proyecto está construido con Angular y muestra mis habilidades, proyectos y logros como desarrollador. ¡Siéntete libre de explorar y de contactarme si deseas colaborar o simplemente saludar! 
+Portafolio estático en Angular, orientado a oportunidades profesionales y proyectos freelance. Su contenido principal no depende de Supabase, Railway ni de una API.
 
-## 🛠 Tecnologías Utilizadas
-- **Angular**: Un potente framework para construir aplicaciones web dinámicas.
-- **TypeScript**: Código con tipado estático que escala.
-- **SCSS**: CSS mejorado para estilos más limpios y mantenibles.
-- **HTML5**: La columna vertebral de la web.
-- **Node.js**: Entorno de ejecución de JavaScript del lado del servidor para el desarrollo.
-- **Angular CLI**: Interfaz de línea de comandos para proyectos Angular.
-- **Angular Material**: Componentes de interfaz de usuario modernos y responsivos.
-- **Tailwind CSS**: Un framework CSS utilitario para diseñar rápidamente sin salir del HTML.
+## Empezar
 
+Requiere Node.js 22.12+ o 24 y npm.
 
-## 🚀 Cómo Empezar
+```sh
+npm ci
+npm start
+```
 
-Para ejecutar este proyecto localmente, sigue estos pasos:
+## Verificar y compilar
 
-1. **Clona el repositorio**:
-    ```sh
-    git clone https://github.com/marignomaxy/portafolio.git
-    cd portafolio
-    ```
+```sh
+npm run test:content
+npm test
+npm run build
+```
 
-2. **Instala las dependencias**:
-    ```sh
-    npm install
-    ```
+Las pruebas de interfaz usan Chrome o Edge en modo headless. En Windows se detecta Edge si Chrome no está instalado; en otros entornos se puede definir CHROME_BIN.
 
-3. **Ejecuta el servidor de desarrollo**:
-    ```sh
-    ng serve
-    ```
-    Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
+La salida estática queda en dist/portafolio/browser. vercel.json conserva acceso directo a las fichas de proyectos.
 
-## 📈 Funcionalidades
+## Fuente única y documentación
 
-- **Diseño Responsivo**: Funciona perfectamente en todos los dispositivos.
-- **Contenido Dinámico**: Actualiza fácilmente proyectos y habilidades a través de una única fuente de verdad.
-- **Interfaz Moderna**: Interfaz de usuario limpia e intuitiva.
-- **Rendimiento Optimizado**: Rápido y eficiente.
+- Contenido público estructurado: src/app/data/portfolio.json.
+- Contrato funcional y criterios de aceptación: specs/001-portafolio-local/spec.md.
+- Índice de decisiones, operación y evidencia: [docs/README.md](docs/README.md).
 
+El sitio incluye carrusel manual, fichas de cuatro proyectos, formación con filtros, tema claro/oscuro, navegación móvil y contacto mediante un borrador de correo. No almacena consultas ni incluye chatbot.
 
-## 📧 Contacto
-Si tienes alguna pregunta o quieres contactarme, puedes encontrarme en:
+## Actualizar contenido
 
-- Email: marignomaxy@gmail.com
-- LinkedIn: [Maximiliano Marigno](https://www.linkedin.com/in/maximiliano-marigno/)
+Editar el JSON y añadir los recursos públicos correspondientes en src/assets. No publicar credenciales, datos de clientes ni certificados con identificadores personales innecesarios.
 
+Antes de publicar, regenerar el CV con python tools/generate-cv.py si cambia su contenido (requiere reportlab y pypdf) y revisar visualmente el PDF. npm run build sincroniza metadatos y sitemap automáticamente.
 
-¡Gracias por visitar mi portafolio! ¡Que tengas un gran día! 😊
+Los cinco cursos recibidos de Platzi están incorporados con copias locales y figuran entre los destacados. No se necesita compartir contraseñas de cuentas.

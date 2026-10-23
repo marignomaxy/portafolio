@@ -1,0 +1,16 @@
+@if (project(); as item) {
+<main class="project-detail">
+  <section class="detail-intro wrap">
+    <a class="detail-back text-link" routerLink="/" fragment="trabajos"><app-icon name="arrow-left" /> Volver a los proyectos</a>
+    <div class="detail-eyebrow"><span class="eyebrow">{{ item.number }} / {{ item.eyebrow }}</span><span class="small-label">{{ item.year }}</span></div>
+    <h1>{{ item.name }}<span>.</span></h1>
+    <div class="detail-summary-row"><p>{{ item.summary }}</p><a class="button button-accent" [href]="item.url" target="_blank" rel="noopener noreferrer">{{ item.featured ? 'Explorar sitio publicado' : 'Explorar demo visual' }} <app-icon name="arrow-up-right" /></a></div>
+    <div class="detail-meta"><div><span class="small-label">TIPO DE PROYECTO</span><p>{{ item.category }}</p></div><div><span class="small-label">ESTADO</span><p>{{ item.status }}</p></div><div><span class="small-label">TECNOLOGÍAS</span><p>{{ item.technologies.join(' · ') }}</p></div></div>
+  </section>
+  <figure class="detail-figure wrap"><img [src]="item.image" [alt]="item.imageAlt" width="1440" height="900" fetchpriority="high"><figcaption>{{ item.imageCaption }}</figcaption></figure>
+  <section class="detail-story wrap" aria-labelledby="story-heading"><div class="detail-story-title"><span class="eyebrow">EL CONTEXTO</span><h2 id="story-heading">Una idea.<br>Decisiones<br><em>concretas.</em></h2><p>{{ item.description }}</p></div><div class="detail-story-content"><article><span class="small-label">01 / EL DESAFÍO</span><h3>Qué había que resolver</h3><p>{{ item.problem }}</p></article><article><span class="small-label">02 / MI APORTE</span><h3>Qué construí</h3><p>{{ item.contribution }}</p></article><article><span class="small-label">03 / CRITERIO DE PRODUCTO</span><h3>Las decisiones detrás</h3><ul>@for (decision of item.decisions; track $index) {<li><app-icon name="check" /><span>{{ decision }}</span></li>}</ul></article></div></section>
+  <aside class="detail-status wrap"><app-icon name="location" /><div><span class="small-label">ESTADO Y ALCANCE</span><p>{{ item.statusNote }}</p></div></aside>
+  <section class="detail-next wrap" aria-labelledby="next-heading"><div><span class="eyebrow">SEGUIMOS EXPLORANDO</span><h2 id="next-heading">{{ nextProject().name }}</h2></div><a class="detail-next-link" [routerLink]="['/proyectos', nextProject().id]" [attr.aria-label]="'Ver siguiente proyecto: ' + nextProject().name"><app-icon name="arrow-up-right" /></a></section>
+  <section class="detail-contact wrap"><p>¿Construimos algo así para tu negocio?</p><a routerLink="/" fragment="contacto" class="text-link">Contame tu idea <app-icon name="arrow-up-right" /></a></section>
+</main>
+} @else {<app-not-found [projectMissing]="true" />}

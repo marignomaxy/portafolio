@@ -3,6 +3,8 @@
 # Compiled output
 /dist
 /tmp
+/.codex-remote-attachments
+/.vercel
 /out-tsc
 /bazel-out
 

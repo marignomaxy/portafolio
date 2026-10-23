@@ -1,5 +1,30 @@
-<app-navbar></app-navbar>
-<div class="min-h-screen">
-  <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>
+<a href="#main-content" class="skip-link">Saltar al contenido</a>
+<div class="reading-progress" [style.transform]="'scaleX(' + progress() + ')'" aria-hidden="true"></div>
+<header class="site-header">
+  <div class="header-inner wrap">
+    <a routerLink="/" class="wordmark" aria-label="Maximiliano Marigno, inicio">m<span>m</span><i></i></a>
+    <a routerLink="/" class="brand-caption" aria-label="Inicio">MAXIMILIANO<br>MARIGNO</a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      @for (link of links; track link.fragment) {<a routerLink="/" [fragment]="link.fragment">{{ link.label }}</a>}
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button theme-toggle" type="button" (click)="toggleTheme()" [attr.aria-label]="lightMode() ? 'Activar tema oscuro' : 'Activar tema claro'"><app-icon [name]="lightMode() ? 'moon' : 'sun'" /></button>
+      <a class="header-contact" routerLink="/" fragment="contacto">Hablemos <app-icon name="arrow-up-right" /></a>
+      <button class="icon-button menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()" aria-controls="mobile-navigation" [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"><app-icon [name]="menuOpen() ? 'close' : 'menu'" /></button>
+    </div>
+  </div>
+  @if (menuOpen()) {
+    <nav id="mobile-navigation" class="mobile-nav wrap" aria-label="Navegación móvil">
+      @for (link of links; track link.fragment) {<a routerLink="/" [fragment]="link.fragment" (click)="closeMenu()">{{ link.label }}<app-icon name="arrow-up-right" /></a>}
+      <a routerLink="/" fragment="contacto" (click)="closeMenu()">Hablemos<app-icon name="arrow-up-right" /></a>
+    </nav>
+  }
+</header>
+<div id="main-content" tabindex="-1"><router-outlet /></div>
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <a class="footer-name" routerLink="/">{{ profile.name }}<span>Diseño con intención. Código con criterio.</span></a>
+    <div class="footer-links"><a [href]="profile.linkedin" target="_blank" rel="noopener noreferrer">LinkedIn <app-icon name="arrow-up-right" /></a><a [href]="profile.cvUrl" download>Descargar CV <app-icon name="download" /></a></div>
+  </div>
+  <div class="wrap footer-bottom"><span>© {{ year }} · Hecho con intención, desde La Plata.</span><a routerLink="/" fragment="inicio">Volver arriba ↑</a><span>Angular · Diseño & desarrollo</span></div>
+</footer>
